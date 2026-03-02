@@ -15,3 +15,4 @@ jobs:
       checks: write
     with:
       kubernetes-minor-version: '32'
+      docker-platform: linux/amd64,linux/arm64
