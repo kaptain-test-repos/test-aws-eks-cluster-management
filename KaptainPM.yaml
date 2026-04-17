@@ -2,6 +2,9 @@ apiVersion: kaptain.org/1.7
 kind: aws-eks-cluster-management
 
 spec:
+  global:
+    projectName:
+      stripRepositoryNamePrefix: test
   main:
     quality:
       branches:
