@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: kube-kaptain/buildon-github-actions/.github/workflows/aws-eks-cluster-management.yaml@dns-friendly-versions-and-strip-prefix
+    uses: kube-kaptain/buildon-github-actions/.github/workflows/aws-eks-cluster-management.yaml@dns-friendly-versions-and-strip-pref
     permissions:
       contents: write
       packages: write
