@@ -1,0 +1,15 @@
+apiVersion: kaptain.org/1.7
+kind: aws-eks-cluster-management
+
+spec:
+  global:
+    projectName:
+      stripRepositoryNamePrefix: test
+  main:
+    quality:
+      branches:
+        blockSlashes: true
+      commits:
+        blockConventional: true
+    docker:
+      platform: linux/amd64,linux/arm64
