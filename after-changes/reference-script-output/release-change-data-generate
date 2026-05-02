@@ -1,0 +1,2 @@
+RELEASE_CHANGE_DATA_FILE=kaptain-out/release-change-data/release-change-data.yaml
+RELEASE_CHANGE_DATA_DOCKER_CONTEXT=kaptain-out/release-change-data/docker-context

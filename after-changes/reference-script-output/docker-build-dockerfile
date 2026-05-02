@@ -1,0 +1,1 @@
+DOCKER_TARGET_IMAGE_FULL_URI=ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE

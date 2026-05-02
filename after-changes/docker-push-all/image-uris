@@ -1,0 +1,4 @@
+ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-linux-amd64
+ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-linux-arm64
+ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-release-change-data-linux-amd64
+ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-release-change-data-linux-arm64

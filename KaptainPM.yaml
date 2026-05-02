@@ -1,15 +1,15 @@
-apiVersion: kaptain.org/1.7
-kind: aws-eks-cluster-management
+apiVersion: kaptain.org/1.16
+kind: basic-quality-and-versioning
 
 spec:
   global:
     projectName:
       stripRepositoryNamePrefix: test
+  layers:
+    - ghcr.io/kube-kaptain/layer/layer-aws-eks-cluster-management:[1.5,2.0)
   main:
     quality:
       branches:
         blockSlashes: true
       commits:
         blockConventional: true
-    docker:
-      platform: linux/amd64,linux/arm64
