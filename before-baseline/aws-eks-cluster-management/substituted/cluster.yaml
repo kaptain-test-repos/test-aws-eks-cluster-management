@@ -1,0 +1,224 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: aws-eks-cluster-management
+  region: eu-west-1
+  version: "1.32"
+  tags:
+    ManagedBy: "Kaptain aws-eks-cluster-management system"
+    ManagedByGitRepo: aws-eks-cluster-management
+    SafeString: this-is-fine
+    BoolTrue: "true"
+    BoolFalse: "false"
+    BoolYes: "yes"
+    BoolNo: "no"
+    BoolOn: "on"
+    BoolOff: "off"
+    NullValue: "null"
+    Tilde: "~"
+    Integer: "42"
+    NegativeInt: "-1"
+    Zero: "0"
+    Octal: "0777"
+    Hex: "0x1F"
+    Float: "3.14"
+    NegFloat: "-0.5"
+    Scientific: "1e10"
+    SpecialInf: ".inf"
+    SpecialNan: ".nan"
+    Sexagesimal: "1:30"
+  annotations:
+    kaptain.org/aws-account-id: "123456789012"
+    kaptain.org/eks-cluster-security-group: "sg-123234434"
+    SafeString: this-is-fine
+    BoolTrue: "true"
+    BoolFalse: "false"
+    BoolYes: "yes"
+    BoolNo: "no"
+    BoolOn: "on"
+    BoolOff: "off"
+    NullValue: "null"
+    Tilde: "~"
+    Integer: "42"
+    NegativeInt: "-1"
+    Zero: "0"
+    Octal: "0777"
+    Hex: "0x1F"
+    Float: "3.14"
+    NegFloat: "-0.5"
+    Scientific: "1e10"
+    SpecialInf: ".inf"
+    SpecialNan: ".nan"
+    Sexagesimal: "1:30"
+
+iam:
+  withOIDC: true
+
+vpc:
+  id: vpc-0123456789abcdef0
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: false
+  controlPlaneSecurityGroupIDs:
+    - sg-1234
+    - sg-5678
+  subnets:
+    private:
+      eu-west-1a:
+        id: subnet-aaa11111111111111
+      eu-west-1b:
+        id: subnet-bbb22222222222222
+      eu-west-1c:
+        id: subnet-ccc33333333333333
+
+cloudWatch:
+  clusterLogging:
+    enableTypes:
+      - api
+      - audit
+      - authenticator
+      - controllerManager
+      - scheduler
+
+secretsEncryption:
+  keyARN: arn:aws:kms:eu-west-1:123456789012:key/mrk-1234567890abcdef1234567890abcdef
+
+autoModeConfig:
+  enabled: false
+
+kubernetesNetworkConfig:
+  serviceIPv4CIDR: 10.0.0.0/24
+
+addons:
+  - name: coredns
+    version: latest
+  - name: kube-proxy
+    version: latest
+  - name: vpc-cni
+    version: latest
+  - name: aws-ebs-csi-driver
+    version: latest
+    serviceAccountRoleARN: arse
+  - name: aws-efs-csi-driver
+    version: latest
+
+managedNodeGroups:
+  - name: ng-20260427-k-1-32-v-1-0-3
+    amiFamily: AmazonLinux2023
+    instanceType: t3.medium
+    volumeSize: 20
+    volumeType: gp3
+    volumeEncrypted: true
+    desiredCapacity: 3
+    minSize: 3
+    maxSize: 12
+    updateConfig:
+      maxUnavailable: 1
+    subnets:
+      - subnet-aaa11111111111111
+      - subnet-bbb22222222222222
+      - subnet-ccc33333333333333
+    labels:
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+    tags:
+      ManagedBy: "Kaptain aws-eks-cluster-management system"
+      ManagedByGitRepo: aws-eks-cluster-management
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+  - name: ng-20260427-k-1-32-v-1-0-3-managed
+    amiFamily: AmazonLinux2023
+    instanceType: t3.medium
+    volumeSize: 50
+    volumeType: io1
+    volumeEncrypted: true
+    desiredCapacity: 3
+    minSize: 3
+    maxSize: 12
+    updateConfig:
+      maxUnavailable: 1
+    subnets:
+      - subnet-aaa11111111111111
+      - subnet-bbb22222222222222
+      - subnet-ccc33333333333333
+    labels:
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+    tags:
+      ManagedBy: "Kaptain aws-eks-cluster-management system"
+      ManagedByGitRepo: aws-eks-cluster-management
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"

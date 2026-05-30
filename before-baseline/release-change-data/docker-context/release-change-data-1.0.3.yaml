@@ -1,0 +1,17 @@
+change:
+  version: 1.0.3
+  project-name: aws-eks-cluster-management
+  repository-name: aws-eks-cluster-management
+  repository-owner: kaptain-test-repos
+  tag: 1.0.3-PRERELEASE
+  git-sha1: 817ce4cd41af5329f79028fd7a0d13c9b8343f9a
+  generated: "2026-04-27T01:20:17+00:00"
+  commit-count: 0
+  previous-tag: 1.0.2
+  previous-git-sha1: 817ce4cd41af5329f79028fd7a0d13c9b8343f9a
+  change-source-type: github-pull-request
+  change-source-ref-data: 'PR #4 from kaptain-test-repos/dns-friendly-versions-and-strip-prefix'
+  change-source-branch: main
+  change-source-note-found: true
+  change-source-merge-candidate-creator: Fred Cooke
+  commits: []

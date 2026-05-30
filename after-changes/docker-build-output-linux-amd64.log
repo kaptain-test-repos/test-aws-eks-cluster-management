@@ -1,0 +1,15 @@
+STEP 1/4: FROM ghcr.io/kube-kaptain/image/image-aws-eks-cluster-management:1.13
+Trying to pull ghcr.io/kube-kaptain/image/image-aws-eks-cluster-management:1.13...
+Getting image source signatures
+Copying blob sha256:08cbf1cb2f74d4b222b037fd6711b9c2c71e1d40302d18eec709b3f2a28a126a
+Copying blob sha256:ea368c811a9e76ca60f51346f41e6cd8dcb00fa9c1b8ad9e151c7309a88f4953
+Copying config sha256:8158b9d08050386dfaff0a9dbad02383f4baf3477435205d04f33d5f47cc5e80
+Writing manifest to image destination
+STEP 2/4: COPY cluster.yaml /kd/eks/
+STEP 3/4: USER kaptain
+STEP 4/4: LABEL "version"="1.0.3-PRERELEASE" "image.name"="aws/aws-eks-cluster-management" "build.datetime"="2026-04-27T10:19:16Z"
+COMMIT ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-linux-amd64
+--> d5c3af7f83fa
+[Warning] one or more build args were not consumed: [DOCKER_IMAGE_NAME DOCKER_NAMESPACE DOCKER_PLATFORM DOCKER_PLATFORM_CPU_ARCHITECTURE DOCKER_REGISTRY DOCKER_TAG PROJECT_NAME REPOSITORY_NAME REPOSITORY_OWNER VERSION]
+Successfully tagged ghcr.io/kaptain-test-repos/aws/aws-eks-cluster-management:1.0.3-PRERELEASE-linux-amd64
+d5c3af7f83facf336961ba945d37011e19ab712c4a2fb851efc5b5b54e207941

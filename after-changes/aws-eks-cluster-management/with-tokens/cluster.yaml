@@ -1,0 +1,224 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ${ProjectName}
+  region: ${AwsRegion}
+  version: "${KubernetesVersion}"
+  tags:
+    ManagedBy: "Kaptain aws-eks-cluster-management system"
+    ManagedByGitRepo: ${ProjectName}
+    SafeString: this-is-fine
+    BoolTrue: "true"
+    BoolFalse: "false"
+    BoolYes: "yes"
+    BoolNo: "no"
+    BoolOn: "on"
+    BoolOff: "off"
+    NullValue: "null"
+    Tilde: "~"
+    Integer: "42"
+    NegativeInt: "-1"
+    Zero: "0"
+    Octal: "0777"
+    Hex: "0x1F"
+    Float: "3.14"
+    NegFloat: "-0.5"
+    Scientific: "1e10"
+    SpecialInf: ".inf"
+    SpecialNan: ".nan"
+    Sexagesimal: "1:30"
+  annotations:
+    kaptain.org/aws-account-id: "${AwsAccountId}"
+    kaptain.org/eks-cluster-security-group: "${ClusterSecurityGroup}"
+    SafeString: this-is-fine
+    BoolTrue: "true"
+    BoolFalse: "false"
+    BoolYes: "yes"
+    BoolNo: "no"
+    BoolOn: "on"
+    BoolOff: "off"
+    NullValue: "null"
+    Tilde: "~"
+    Integer: "42"
+    NegativeInt: "-1"
+    Zero: "0"
+    Octal: "0777"
+    Hex: "0x1F"
+    Float: "3.14"
+    NegFloat: "-0.5"
+    Scientific: "1e10"
+    SpecialInf: ".inf"
+    SpecialNan: ".nan"
+    Sexagesimal: "1:30"
+
+iam:
+  withOIDC: ${IamWithOidc}
+
+vpc:
+  id: ${VpcId}
+  clusterEndpoints:
+    privateAccess: ${VpcClusterEndpointsPrivateAccess}
+    publicAccess: ${VpcClusterEndpointsPublicAccess}
+  controlPlaneSecurityGroupIDs:
+    - ${VpcControlPlaneSecurityGroupId1}
+    - ${VpcControlPlaneSecurityGroupId2}
+  subnets:
+    private:
+      ${AwsRegion}a:
+        id: ${PrivateSubnetIdA}
+      ${AwsRegion}b:
+        id: ${PrivateSubnetIdB}
+      ${AwsRegion}c:
+        id: ${PrivateSubnetIdC}
+
+cloudWatch:
+  clusterLogging:
+    enableTypes:
+      - ${CloudWatchClusterLoggingEnableType1}
+      - ${CloudWatchClusterLoggingEnableType2}
+      - ${CloudWatchClusterLoggingEnableType3}
+      - ${CloudWatchClusterLoggingEnableType4}
+      - ${CloudWatchClusterLoggingEnableType5}
+
+secretsEncryption:
+  keyARN: ${SecretsEncryptionKeyArn}
+
+autoModeConfig:
+  enabled: ${AutoModeConfigEnabled}
+
+kubernetesNetworkConfig:
+  serviceIPv4CIDR: ${NetworkConfigServiceIpV4Cidr}
+
+addons:
+  - name: coredns
+    version: latest
+  - name: kube-proxy
+    version: latest
+  - name: vpc-cni
+    version: latest
+  - name: aws-ebs-csi-driver
+    version: latest
+    serviceAccountRoleARN: ${AddonsAwsEbsCsiDriverServiceAccountRoleArn}
+  - name: aws-efs-csi-driver
+    version: latest
+
+managedNodeGroups:
+  - name: ${NodeGroupDefaultPrefix}
+    amiFamily: ${NodegroupAmiFamilyKaptainDefaultNg}
+    instanceType: ${NodegroupInstanceTypeKaptainDefaultNg}
+    volumeSize: ${NodegroupVolumeSizeKaptainDefaultNg}
+    volumeType: ${NodegroupVolumeTypeKaptainDefaultNg}
+    volumeEncrypted: ${NodegroupVolumeEncryptedKaptainDefaultNg}
+    desiredCapacity: ${NodegroupDesiredCapacityKaptainDefaultNg}
+    minSize: ${NodegroupMinSizeKaptainDefaultNg}
+    maxSize: ${NodegroupMaxSizeKaptainDefaultNg}
+    updateConfig:
+      maxUnavailable: ${NodegroupUpdateConfigMaxUnavailableKaptainDefaultNg}
+    subnets:
+      - ${PrivateSubnetIdA}
+      - ${PrivateSubnetIdB}
+      - ${PrivateSubnetIdC}
+    labels:
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+    tags:
+      ManagedBy: "Kaptain aws-eks-cluster-management system"
+      ManagedByGitRepo: ${ProjectName}
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+  - name: ${NodeGroupDefaultPrefixManaged}
+    amiFamily: ${NodegroupAmiFamilyManaged}
+    instanceType: ${NodegroupInstanceTypeManaged}
+    volumeSize: ${NodegroupVolumeSizeManaged}
+    volumeType: ${NodegroupVolumeTypeManaged}
+    volumeEncrypted: ${NodegroupVolumeEncryptedManaged}
+    desiredCapacity: ${NodegroupDesiredCapacityManaged}
+    minSize: ${NodegroupMinSizeManaged}
+    maxSize: ${NodegroupMaxSizeManaged}
+    updateConfig:
+      maxUnavailable: ${NodegroupUpdateConfigMaxUnavailableManaged}
+    subnets:
+      - ${PrivateSubnetIdA}
+      - ${PrivateSubnetIdB}
+      - ${PrivateSubnetIdC}
+    labels:
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"
+    tags:
+      ManagedBy: "Kaptain aws-eks-cluster-management system"
+      ManagedByGitRepo: ${ProjectName}
+      SafeString: this-is-fine
+      BoolTrue: "true"
+      BoolFalse: "false"
+      BoolYes: "yes"
+      BoolNo: "no"
+      BoolOn: "on"
+      BoolOff: "off"
+      NullValue: "null"
+      Tilde: "~"
+      Integer: "42"
+      NegativeInt: "-1"
+      Zero: "0"
+      Octal: "0777"
+      Hex: "0x1F"
+      Float: "3.14"
+      NegFloat: "-0.5"
+      Scientific: "1e10"
+      SpecialInf: ".inf"
+      SpecialNan: ".nan"
+      Sexagesimal: "1:30"

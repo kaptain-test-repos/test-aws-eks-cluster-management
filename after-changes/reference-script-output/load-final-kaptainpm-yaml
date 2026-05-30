@@ -1,0 +1,12 @@
+BUILD_SCRIPTS_REPO_ROOT=/Users/fred/projects/kaptain/buildon/buildon-github-actions
+METADATA_DESCRIPTION=AWS EKS cluster management build flow as a postVersionsAndNaming hook
+STRIP_REPOSITORY_NAME_PREFIX=test
+QC_BLOCK_SLASH_CONTAINING_BRANCHES=true
+QC_BLOCK_CONVENTIONAL_COMMITS=true
+DOCKER_PLATFORM=linux/amd64,linux/arm64
+HOOK_POST_VERSIONS_AND_NAMING_SCRIPT_SUB_PATH=kaptain-out/aws-eks-cluster-management-orchestrator.bash
+OUTPUT_SUB_PATH=kaptain-out
+GITHUB_RELEASE_ENABLED=true
+KUBERNETES_WORKLOAD_TYPE=deployment
+KUBERNETES_CONFIGMAP_SUB_PATH=src/configmap
+KUBERNETES_SECRET_TEMPLATE_SUB_PATH=src/secret.template
