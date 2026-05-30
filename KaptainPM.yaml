@@ -1,4 +1,4 @@
-apiVersion: kaptain.org/1.16
+apiVersion: kaptain.org/1.18
 kind: basic-quality-and-versioning
 
 spec:
@@ -6,7 +6,7 @@ spec:
     projectName:
       stripRepositoryNamePrefix: test
   layers:
-    - ghcr.io/kube-kaptain/layer/layer-aws-eks-cluster-management:[1.5,2.0)
+    - ghcr.io/kube-kaptain/layer/layer-aws-eks-cluster-management:[1.6]
   main:
     quality:
       branches:

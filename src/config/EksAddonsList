@@ -1,0 +1,1 @@
+coredns,kube-proxy,vpc-cni,aws-ebs-csi-driver,aws-efs-csi-driver,eks-pod-identity-agent
